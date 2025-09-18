@@ -1,0 +1,43 @@
+<?xml version ="1.0" encoding =" UTF -8"?>
+<schema version="1.0"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:game="http://www.tp1.fr/game"
+        targetNamespace="http://www.tp1.fr/game"
+        elementFormDefault="qualified">
+
+    <element name="jeu" type="game:Jeu"/>
+    <complexType name="Jeu">
+        <sequence>
+            <element name="perso" type="game:Perso" minOccurs="1" maxOccurs="unbounded"/>
+            <element name="classe" type="game:Classe" minOccurs="1" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Perso">
+        <sequence>
+            <element name="nom" type="string"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Classe">
+        <sequence>
+            <element name="temps"/>
+            <element name="ranges" type="game:Range" minOccurs="1" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Range">
+        <sequence>
+            <element name="tables" type="game:Table" minOccurs="2" maxOccurs="20"/>
+        </sequence>
+    </complexType>
+    
+    <simpleType name="Table">
+        <restriction base="string">
+            <enumeration value="0"/>
+            <enumeration value="1"/>
+            <enumeration value="2"/>
+        </restriction>
+    </simpleType>
+    
+</schema>

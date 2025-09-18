@@ -1,0 +1,14 @@
+/home/b/baccardf/RiderProjects/Cabinet Infermier/CabinetInfirmier/bin/Debug/net8.0/CabinetInfirmier
+/home/b/baccardf/RiderProjects/Cabinet Infermier/CabinetInfirmier/bin/Debug/net8.0/CabinetInfirmier.deps.json
+/home/b/baccardf/RiderProjects/Cabinet Infermier/CabinetInfirmier/bin/Debug/net8.0/CabinetInfirmier.runtimeconfig.json
+/home/b/baccardf/RiderProjects/Cabinet Infermier/CabinetInfirmier/bin/Debug/net8.0/CabinetInfirmier.dll
+/home/b/baccardf/RiderProjects/Cabinet Infermier/CabinetInfirmier/bin/Debug/net8.0/CabinetInfirmier.pdb
+/home/b/baccardf/RiderProjects/Cabinet Infermier/CabinetInfirmier/obj/Debug/net8.0/CabinetInfirmier.GeneratedMSBuildEditorConfig.editorconfig
+/home/b/baccardf/RiderProjects/Cabinet Infermier/CabinetInfirmier/obj/Debug/net8.0/CabinetInfirmier.AssemblyInfoInputs.cache
+/home/b/baccardf/RiderProjects/Cabinet Infermier/CabinetInfirmier/obj/Debug/net8.0/CabinetInfirmier.AssemblyInfo.cs
+/home/b/baccardf/RiderProjects/Cabinet Infermier/CabinetInfirmier/obj/Debug/net8.0/CabinetInfirmier.csproj.CoreCompileInputs.cache
+/home/b/baccardf/RiderProjects/Cabinet Infermier/CabinetInfirmier/obj/Debug/net8.0/CabinetInfirmier.dll
+/home/b/baccardf/RiderProjects/Cabinet Infermier/CabinetInfirmier/obj/Debug/net8.0/refint/CabinetInfirmier.dll
+/home/b/baccardf/RiderProjects/Cabinet Infermier/CabinetInfirmier/obj/Debug/net8.0/CabinetInfirmier.pdb
+/home/b/baccardf/RiderProjects/Cabinet Infermier/CabinetInfirmier/obj/Debug/net8.0/CabinetInfirmier.genruntimeconfig.cache
+/home/b/baccardf/RiderProjects/Cabinet Infermier/CabinetInfirmier/obj/Debug/net8.0/ref/CabinetInfirmier.dll

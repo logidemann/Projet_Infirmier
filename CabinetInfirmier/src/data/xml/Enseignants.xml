@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<jeu>
+  
+    <classe>
+        <temps>2</temps>
+        <range>
+            <table>
+                <eleve>Daniel</eleve>
+                <eleve>Florent</eleve>
+            </table>
+            <table></table>
+        </range>
+        <range>
+            <table>
+                <eleve>Loic</eleve>
+                <eleve>Leonie</eleve>
+            </table>
+        </range>
+    </classe>
+
+</jeu>
