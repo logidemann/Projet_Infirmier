@@ -1,0 +1,134 @@
+<?xml version ="1.0" encoding =" UTF -8"?>
+<schema version="1.0"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:cab="http://www.univ-grenoble-alpes.fr/l3miage/medical"
+        targetNamespace="http://www.univ-grenoble-alpes.fr/l3miage/medical"
+        elementFormDefault="qualified">
+    
+    <element name="cabinet" type="cab:Cabinet"/>
+    
+    <!-- Type complexe représentant le cabinet -->
+    <complexType name="Cabinet">
+        <sequence>
+            <element name="nom" type="string"/>
+            <element name="adresse" type="cab:Adresse"/>
+            <element name="infirmiers" type="cab:Infirmiers"/>
+            <element name="patients" type="cab:Patients"/>
+        </sequence>
+    </complexType>
+
+    <!-- Type complexe représentant l'adresse -->
+    <complexType name="Adresse">
+        <sequence>
+            <element name="etage" type="int"/>
+            <element name="numero" type="int"/>
+            <element name="rue" type="string"/>
+            <element name="codePostal" type="cab:CodePostal"/>
+            <element name="ville" type="string"/>
+        </sequence>
+    </complexType>
+
+    <!-- Type complexe représentant la liste d'infirmier -->
+    <complexType name="Infirmiers">
+        <sequence>
+            <element name="infirmier" type="cab:Infirmier" minOccurs="3" maxOccurs="3"/>
+        </sequence>
+    </complexType>
+
+    <!-- Type complexe représentant un infirmier -->
+    <complexType name="Infirmier">
+        <sequence>
+            <element name="id" type="cab:IdIntervenant"/>
+            <element name="nom" type="cab:Nom"/>
+            <element name="prenom" type="cab:Prenom"/>
+            <element name="photo" type="string"/>
+        </sequence>
+    </complexType>
+
+    <!-- Type complexe représentant la liste de patient -->
+    <complexType name="Patients">
+        <sequence>
+            <element name="patient" type="cab:Patient" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <!-- Type complexe représentant un patient -->
+    <complexType name="Patient">
+        <sequence>
+            <element name="nom" type="cab:Nom"/>
+            <element name="prenom" type="cab:Prenom"/>
+            <element name="sexe" type="cab:Sexe"/> 
+            <element name="naissance" type="cab:Naissance"/>
+            <element name="numero" type="cab:Numero"/>
+            <element name="adresse" type="cab:Adresse"/>
+            <element name="visite" type="cab:Visite"/>
+        </sequence>
+    </complexType>
+
+    <!-- Type complexe représentant une visite -->
+    <complexType name="Visite">
+        <sequence>
+            <element name="date" type="date"/>
+            <element name="intervenant" type="string"/>
+            <element name="acte" type="cab:Acte"/>
+        </sequence>
+    </complexType>
+
+    <!-- Type complexe représentant un acte -->
+    <complexType name="Acte">
+        <sequence>
+            <element name="id" type="string"/>
+        </sequence>
+    </complexType>
+    
+    <!-- Type complexe représentant un code postal -->
+    <simpleType name="CodePostal">
+        <restriction base="string">
+            <pattern value="^[0-9]\d{4}"/>
+        </restriction>
+    </simpleType>
+
+    <!-- Type simple représentant le sexe avec un enum -->
+    <simpleType name="Sexe">
+        <restriction base="string">
+            <enumeration value="F"/>
+            <enumeration value="H"/>
+        </restriction>
+    </simpleType>
+
+    <!-- Type simple représentant la date de naissance -->
+    <simpleType name="Naissance">
+        <restriction base="date">
+            <minInclusive value="01-01-1900"/>
+        </restriction>
+    </simpleType>
+
+    <!-- Type simple représentant le numéro de sécurité social -->
+    <simpleType name="Numero">
+        <restriction base="string">
+            <pattern value="^(?:[1-4]|7|8)\d{2}(?:0[1-9]|1[1-2]|[2-3]\d|4[0-2]|[5-9]\d)(?:0[1-9]|[1-8]\d|9[1-5]|2A|2B|96)(?:00[1-9]|0[1-9]\d|[1-9]\d{2})|(?:97[0-9]|98[1-9])(?:0[0-9]|[1-9]\d)|99(?:00[1-9]|0[1-9]\d|[1-9]\d{2})"/>
+        </restriction>
+    </simpleType>
+
+    <!-- Type simple représentant le prénom -->
+    <simpleType name="Prenom">
+        <restriction base="string">
+            <pattern value="[a-zA-Z]"/>
+        </restriction>
+    </simpleType>
+
+    <!-- Type simple représentant le nom -->
+    <simpleType name="Nom">
+        <restriction base="string">
+            <pattern value="[a-zA-Z]"/>
+        </restriction>
+    </simpleType>
+
+    <!-- Type complexe représentant l'id de l'intervenant (Infirmier) -->
+    <simpleType name="IdIntervenant">
+        <restriction base="string">
+            <pattern value="^[0-9]\d{2}"/>
+        </restriction>
+    </simpleType>
+    
+</schema>
