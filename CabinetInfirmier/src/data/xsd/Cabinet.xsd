@@ -20,8 +20,8 @@
     <!-- Type complexe représentant l'adresse -->
     <complexType name="Adresse">
         <sequence>
-            <element name="etage" type="int"/>
-            <element name="numero" type="int"/>
+            <element name="etage" type="int" minOccurs="0"/>
+            <element name="numero" type="int" minOccurs="0"/>
             <element name="rue" type="string"/>
             <element name="codePostal" type="cab:CodePostal"/>
             <element name="ville" type="string"/>
@@ -31,18 +31,23 @@
     <!-- Type complexe représentant la liste d'infirmier -->
     <complexType name="Infirmiers">
         <sequence>
-            <element name="infirmier" type="cab:Infirmier" minOccurs="3" maxOccurs="3"/>
+            <element name="infirmier" type="cab:Infirmier" minOccurs="0" maxOccurs="unbounded">
+                <key name="idInfirmierKey">
+                    <selector xpath="cab:Infirmier"/>
+                    <field xpath="@id"/>
+                </key>
+            </element>
         </sequence>
     </complexType>
 
     <!-- Type complexe représentant un infirmier -->
     <complexType name="Infirmier">
         <sequence>
-            <element name="id" type="cab:IdIntervenant"/>
-            <element name="nom" type="cab:Nom"/>
-            <element name="prenom" type="cab:Prenom"/>
-            <element name="photo" type="string"/>
+            <element name="nom" type="cab:NomComplet"/>
+            <element name="prenom" type="cab:NomComplet"/>
+            <element name="photo" type="cab:PhotoChemin"/>
         </sequence>
+        <attribute name="id" type="cab:IdIntervenant" use="required"/>
     </complexType>
 
     <!-- Type complexe représentant la liste de patient -->
@@ -55,8 +60,8 @@
     <!-- Type complexe représentant un patient -->
     <complexType name="Patient">
         <sequence>
-            <element name="nom" type="cab:Nom"/>
-            <element name="prenom" type="cab:Prenom"/>
+            <element name="nom" type="cab:NomComplet"/>
+            <element name="prenom" type="cab:NomComplet"/>
             <element name="sexe" type="cab:Sexe"/> 
             <element name="naissance" type="cab:Naissance"/>
             <element name="numero" type="cab:Numero"/>
@@ -68,23 +73,26 @@
     <!-- Type complexe représentant une visite -->
     <complexType name="Visite">
         <sequence>
-            <element name="date" type="date"/>
-            <element name="intervenant" type="string"/>
-            <element name="acte" type="cab:Acte"/>
+            <element name="acte" type="cab:Acte">
+                <keyref name="acteId" refer="acteIdUnicite">
+                    <selector xpath="cab:acte"/>
+                    <field xpath="id"/>
+                </keyref>
+            </element>
         </sequence>
+        <attribute name="date" type="date"/>
+        <attribute name="intervenant" type="cab:IdIntervenant"/>   
     </complexType>
 
     <!-- Type complexe représentant un acte -->
     <complexType name="Acte">
-        <sequence>
-            <element name="id" type="string"/>
-        </sequence>
+        <attribute name="id" type="string"/>
     </complexType>
     
     <!-- Type complexe représentant un code postal -->
     <simpleType name="CodePostal">
         <restriction base="string">
-            <pattern value="^[0-9]\d{4}"/>
+            <pattern value="(([0-8][0-9])|(9[0-5])|(2[ab]))[0-9]{3}"/>
         </restriction>
     </simpleType>
 
@@ -92,42 +100,43 @@
     <simpleType name="Sexe">
         <restriction base="string">
             <enumeration value="F"/>
-            <enumeration value="H"/>
+            <enumeration value="M"/>
         </restriction>
     </simpleType>
 
     <!-- Type simple représentant la date de naissance -->
     <simpleType name="Naissance">
         <restriction base="date">
-            <minInclusive value="01-01-1900"/>
+            <minInclusive value="1900-01-01"/>
         </restriction>
     </simpleType>
 
     <!-- Type simple représentant le numéro de sécurité social -->
     <simpleType name="Numero">
         <restriction base="string">
-            <pattern value="^(?:[1-4]|7|8)\d{2}(?:0[1-9]|1[1-2]|[2-3]\d|4[0-2]|[5-9]\d)(?:0[1-9]|[1-8]\d|9[1-5]|2A|2B|96)(?:00[1-9]|0[1-9]\d|[1-9]\d{2})|(?:97[0-9]|98[1-9])(?:0[0-9]|[1-9]\d)|99(?:00[1-9]|0[1-9]\d|[1-9]\d{2})"/>
+            <pattern value="(?:[1-4]|7|8)\d{2}(?:0[1-9]|1[1-2]|[2-3]\d|4[0-2]|[5-9]\d)(?:0[1-9]|[1-8]\d|9[1-5]|2A|2B|96)(?:00[1-9]|0[1-9]\d|[1-9]\d{2})|(?:97[0-9]|98[1-9])(?:0[0-9]|[1-9]\d)|99(?:00[1-9]|0[1-9]\d|[1-9]\d{2})"/>
         </restriction>
     </simpleType>
 
-    <!-- Type simple représentant le prénom -->
-    <simpleType name="Prenom">
+    <!-- Type simple représentant un élément du nom complet (prénom nom) -->
+    <simpleType name="NomComplet">
         <restriction base="string">
-            <pattern value="[a-zA-Z]"/>
-        </restriction>
-    </simpleType>
-
-    <!-- Type simple représentant le nom -->
-    <simpleType name="Nom">
-        <restriction base="string">
-            <pattern value="[a-zA-Z]"/>
+            <pattern value="[A-Z]?[a-zéèàêâùïüë]+"/>
         </restriction>
     </simpleType>
 
     <!-- Type complexe représentant l'id de l'intervenant (Infirmier) -->
     <simpleType name="IdIntervenant">
         <restriction base="string">
-            <pattern value="^[0-9]\d{2}"/>
+            <pattern value="\d{3}"/>
+        </restriction>
+    </simpleType>
+    
+    <!-- Type simple représentant le chemin d'une photo-->
+    <simpleType name="PhotoChemin">
+        <restriction base="string">
+            <!-- Le ".+" représente n'importe quel caractère, et le "\." représente le point d'extention-->
+            <pattern value=".+\.(png|jpg)"/>
         </restriction>
     </simpleType>
     
