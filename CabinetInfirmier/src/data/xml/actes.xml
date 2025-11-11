@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<actes>
+    <acte code="101">
+        <libelle>Injection intramusculaire</libelle>
+        <tarif>3.15</tarif>
+    </acte>
+    <acte code="102">
+        <libelle>Injection sous-cutanée</libelle>
+        <tarif>3.15</tarif>
+    </acte>
+    <acte code="103">
+        <libelle>Prise de sang</libelle>
+        <tarif>3.81</tarif>
+    </acte>
+    <acte code="104">
+        <libelle>Pansement simple</libelle>
+        <tarif>3.15</tarif>
+    </acte>
+    <acte code="105">
+        <libelle>Pansement complexe</libelle>
+        <tarif>4.20</tarif>
+    </acte>
+    <acte code="106">
+        <libelle>Perfusion</libelle>
+        <tarif>7.50</tarif>
+    </acte>
+    <acte code="107">
+        <libelle>Vaccination</libelle>
+        <tarif>3.15</tarif>
+    </acte>
+    <acte code="108">
+        <libelle>Suivi diabétique</libelle>
+        <tarif>10.00</tarif>
+    </acte>
+    <acte code="109">
+        <libelle>Soins palliatifs</libelle>
+        <tarif>15.00</tarif>
+    </acte>
+</actes>

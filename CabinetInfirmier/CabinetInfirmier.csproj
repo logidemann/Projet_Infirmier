@@ -9,8 +9,6 @@
 
     <ItemGroup>
       <Folder Include="src\data\html\" />
-      <Folder Include="src\data\js\" />
-      <Folder Include="src\data\xslt\" />
     </ItemGroup>
 
 </Project>
