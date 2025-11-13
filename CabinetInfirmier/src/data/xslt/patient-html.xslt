@@ -4,6 +4,7 @@
 
     <xsl:output method="html" encoding="UTF-8" indent="yes"/>
 
+    <!-- racine : le patient -->
     <xsl:template match="/patient">
         <html>
             <head>
@@ -42,20 +43,25 @@
 
                 <h2>Visites</h2>
                 <ul>
-                    <xsl:for-each select="visite">
-                        <li>
-                            <b><xsl:value-of select="@date"/></b><br/>
-                            Infirmier :
-                            <xsl:value-of select="intervenant/prenom"/>
-                            <xsl:text> </xsl:text>
-                            <xsl:value-of select="intervenant/nom"/>
-                            <br/>
-                            Acte :
-                            <xsl:value-of select="acte"/>
-                        </li>
-                    </xsl:for-each>
+                    <!-- on délègue l’affichage des visites -->
+                    <xsl:apply-templates select="visite"/>
                 </ul>
             </body>
         </html>
     </xsl:template>
+
+    <!-- une visite -->
+    <xsl:template match="visite">
+        <li>
+            <b><xsl:value-of select="@date"/></b><br/>
+            Infirmier :
+            <xsl:value-of select="intervenant/prenom"/>
+            <xsl:text> </xsl:text>
+            <xsl:value-of select="intervenant/nom"/>
+            <br/>
+            Acte :
+            <xsl:value-of select="acte"/>
+        </li>
+    </xsl:template>
+
 </xsl:stylesheet>
