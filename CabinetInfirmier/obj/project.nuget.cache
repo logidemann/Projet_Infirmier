@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/AxG28k8HvE=",
+  "dgSpecHash": "UAxCyyXNky4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Utilisateur\\Documents\\GitHub\\Projet_Infirmier\\CabinetInfirmier\\CabinetInfirmier.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Utilisateur\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.20\\microsoft.netcore.app.ref.8.0.20.nupkg.sha512",
-    "C:\\Users\\Utilisateur\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.20\\microsoft.windowsdesktop.app.ref.8.0.20.nupkg.sha512",
-    "C:\\Users\\Utilisateur\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.20\\microsoft.aspnetcore.app.ref.8.0.20.nupkg.sha512",
-    "C:\\Users\\Utilisateur\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.20\\microsoft.netcore.app.host.win-x64.8.0.20.nupkg.sha512"
-  ],
+  "projectFilePath": "/home/g/gidemanl/Documents/Projet_Infirmier/CabinetInfirmier/CabinetInfirmier.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

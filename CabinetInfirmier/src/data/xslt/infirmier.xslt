@@ -9,12 +9,12 @@
     <!-- infirmière courante -->
     <xsl:param name="destinedId">001</xsl:param>
 
-    <!-- on charge le fichier actes.xml (sans namespace) -->
+    <!-- actes.xml (sans namespace) -->
     <xsl:variable name="actes"
                   select="document('../xml/actes.xml')/actes/acte"/>
 
+    <!-- point d’entrée -->
     <xsl:template match="/">
-
         <html>
             <head>
                 <meta charset="utf-8"/>
@@ -35,7 +35,7 @@
                     <xsl:value-of select="$inf/m:nom"/> !
                 </h1>
 
-                <!-- patients qui ont une visite avec cette infirmière -->
+                <!-- patients de cette infirmière -->
                 <xsl:variable name="patients"
                               select="/m:cabinet/m:patients/m:patient[m:visite/@intervenant=$destinedId]"/>
 
@@ -45,71 +45,71 @@
                     patient(s).
                 </p>
 
-                <!-- boucle sur les patients -->
-                <xsl:for-each select="$patients">
-                    <div class="patient">
-                        <h2>
-                            <xsl:value-of select="m:nom"/>
-                            <xsl:text> </xsl:text>
-                            <xsl:value-of select="m:prenom"/>
-                        </h2>
-
-                        <!-- adresse -->
-                        <p>
-                            <xsl:if test="m:adresse/m:numero">
-                                <xsl:value-of select="m:adresse/m:numero"/>
-                                <xsl:text> </xsl:text>
-                            </xsl:if>
-                            <xsl:value-of select="m:adresse/m:rue"/>,
-                            <xsl:text> </xsl:text>
-                            <xsl:value-of select="m:adresse/m:codePostal"/>
-                            <xsl:text> </xsl:text>
-                            <xsl:value-of select="m:adresse/m:ville"/>
-                        </p>
-
-                        <!-- visites de cette infirmière pour ce patient -->
-                        <xsl:for-each select="m:visite[@intervenant=$destinedId]">
-                            <p>
-                                Visite le
-                                <b><xsl:value-of select="@date"/></b><br/>
-
-                                <xsl:text>Soins : </xsl:text>
-
-                                <!-- pour chaque acte, on cherche le libellé dans actes.xml -->
-                                <xsl:for-each select="m:acte">
-                                    <xsl:variable name="code" select="@id"/>
-                                    <xsl:variable name="acte"
-                                                  select="$actes[@code=$code]"/>
-
-                                    <xsl:value-of select="$acte/libelle"/>
-
-                                    <xsl:if test="position() != last()">, </xsl:if>
-                                </xsl:for-each>
-                            </p>
-                        </xsl:for-each>
-
-                        <!-- bouton facture -->
-                        <button>
-                            <xsl:attribute name="onclick">
-                                <xsl:text>openFacture('</xsl:text>
-                                <xsl:value-of select="m:prenom"/>
-                                <xsl:text>','</xsl:text>
-                                <xsl:value-of select="m:nom"/>
-                                <xsl:text>','</xsl:text>
-                                <!-- on passe la liste des codes d'actes -->
-                                <xsl:for-each select="m:visite[@intervenant=$destinedId]/m:acte">
-                                    <xsl:value-of select="@id"/>
-                                    <xsl:if test="position()!=last()">, </xsl:if>
-                                </xsl:for-each>
-                                <xsl:text>')</xsl:text>
-                            </xsl:attribute>
-                            Facture
-                        </button>
-
-                    </div>
-                </xsl:for-each>
+                <!-- on délègue le traitement des patients -->
+                <xsl:apply-templates select="$patients" mode="patient"/>
 
             </body>
         </html>
     </xsl:template>
+
+    <!-- affichage d’un patient -->
+    <xsl:template match="m:patient" mode="patient">
+        <div class="patient">
+            <h2>
+                <xsl:value-of select="m:nom"/>
+                <xsl:text> </xsl:text>
+                <xsl:value-of select="m:prenom"/>
+            </h2>
+
+            <!-- adresse -->
+            <p>
+                <xsl:if test="m:adresse/m:numero">
+                    <xsl:value-of select="m:adresse/m:numero"/>
+                    <xsl:text> </xsl:text>
+                </xsl:if>
+                <xsl:value-of select="m:adresse/m:rue"/>,
+                <xsl:text> </xsl:text>
+                <xsl:value-of select="m:adresse/m:codePostal"/>
+                <xsl:text> </xsl:text>
+                <xsl:value-of select="m:adresse/m:ville"/>
+            </p>
+
+            <!-- visites pour cette infirmière -->
+            <xsl:apply-templates select="m:visite[@intervenant=$destinedId]"
+                                 mode="visite"/>
+
+            <!-- bouton facture -->
+            <button>
+                <xsl:attribute name="onclick">
+                    <xsl:text>openFacture('</xsl:text>
+                    <xsl:value-of select="m:prenom"/>
+                    <xsl:text>','</xsl:text>
+                    <xsl:value-of select="m:nom"/>
+                    <xsl:text>','</xsl:text>
+                    <!-- ici on passe le/les codes actes (dans ton cas 1 acte) -->
+                    <xsl:value-of select="m:visite[@intervenant=$destinedId]/m:acte/@id"/>
+                    <xsl:text>')</xsl:text>
+                </xsl:attribute>
+                Facture
+            </button>
+        </div>
+    </xsl:template>
+
+    <!-- affichage d’une visite -->
+    <xsl:template match="m:visite" mode="visite">
+        <p>
+            Visite le
+            <b><xsl:value-of select="@date"/></b><br/>
+            <xsl:text>Soins : </xsl:text>
+            <xsl:apply-templates select="m:acte" mode="acte"/>
+        </p>
+    </xsl:template>
+
+    <!-- affichage d’un acte (libellé depuis actes.xml) -->
+    <xsl:template match="m:acte" mode="acte">
+        <xsl:variable name="code" select="@id"/>
+        <xsl:variable name="acte" select="$actes[@code=$code]"/>
+        <xsl:value-of select="$acte/libelle"/>
+    </xsl:template>
+
 </xsl:stylesheet>
