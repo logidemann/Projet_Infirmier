@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <cabinet xmlns="http://www.univ-grenoble-alpes.fr/l3miage/medical"
-        xsi:schemaLocation="http://www.univ-grenoble-alpes.fr/l3miage/medical ../xsd/Cabinet.xsd"
+        xsi:schemaLocation="http://www.univ-grenoble-alpes.fr/l3miage/medical ../xsd/cabinet.xsd"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <nom>Soins à Grenoble</nom>
     <adresse>

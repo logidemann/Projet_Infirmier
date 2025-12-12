@@ -11,7 +11,7 @@
                 <meta charset="UTF-8"/>
                 <title>Facture - <xsl:value-of select="cab:prenom"/></title>
                 <link rel="stylesheet" href="../css/style.css"/>
-                <script src="../js/facture.js"/>
+                <script src="../js/buttonScript.js"/>
             </head>
             <body>
                 <h1>Facture de visite</h1>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema version="1.0"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:cab="http://www.univ-grenoble-alpes.fr/l3miage/medical"
+        targetNamespace="http://www.univ-grenoble-alpes.fr/l3miage/medical"
+        elementFormDefault="qualified">
+    
+<!--    Import du fichier patient.xsd pour pouvoir utiliser ces types -->
+    <include schemaLocation="patient.xsd"/>
+
+    <element name="cabinet" type="cab:Cabinet">
+        <key name="idInfirmierKey">
+            <selector xpath="cab:infirmiers/cab:infirmier"/>
+            <field xpath="@id"/>
+        </key>
+    </element>
+
+    <complexType name="Cabinet">
+        <sequence>
+            <element name="nom" type="string"/>
+            <element name="adresse" type="cab:Adresse"/>
+            <element name="infirmiers" type="cab:Infirmiers"/>
+            <element name="patients" type="cab:Patients"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Infirmiers">
+        <sequence>
+            <element name="infirmier" type="cab:Infirmier"
+                     minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Infirmier">
+        <sequence>
+            <element name="nom" type="cab:NomComplet"/>
+            <element name="prenom" type="cab:NomComplet"/>
+            <element name="photo" type="cab:PhotoChemin"/>
+        </sequence>
+        <attribute name="id" type="cab:IdIntervenant" use="required"/>
+    </complexType>
+
+    <complexType name="Patients">
+        <sequence>
+            <element name="patient" type="cab:Patient"
+                     minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <simpleType name="PhotoChemin">
+        <restriction base="string">
+            <pattern value=".+\.(png|jpg)"/>
+        </restriction>
+    </simpleType>
+    
+</schema>

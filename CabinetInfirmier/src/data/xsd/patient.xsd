@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<schema version="1.0"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:cab="http://www.univ-grenoble-alpes.fr/l3miage/medical"
+        targetNamespace="http://www.univ-grenoble-alpes.fr/l3miage/medical"
+        elementFormDefault="qualified">
+    
+    <element name="patient" type="cab:Patient"/>
+
+    <complexType name="Patient">
+        <sequence>
+            <element name="nom" type="cab:NomComplet"/>
+            <element name="prenom" type="cab:NomComplet"/>
+            <element name="sexe" type="cab:Sexe"/>
+            <element name="naissance" type="cab:Naissance"/>
+            <element name="numero" type="cab:Numero"/>
+            <element name="adresse" type="cab:Adresse"/>
+            <element name="visite" type="cab:Visite" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Adresse">
+        <sequence>
+            <element name="etage" type="int" minOccurs="0"/>
+            <element name="numero" type="int" minOccurs="0"/>
+            <element name="rue" type="string"/>
+            <element name="codePostal" type="cab:CodePostal"/>
+            <element name="ville" type="string"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Visite">
+        <sequence>
+            <element name="acte" type="cab:Acte" minOccurs="1" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="date" type="date"/>
+        <attribute name="intervenant" type="cab:IdIntervenant"/>
+    </complexType>
+
+    <complexType name="Acte">
+        <attribute name="id" type="string"/>
+    </complexType>
+
+    <!-- NIR simplifié : 15 chiffres -->
+    <simpleType name="Numero">
+        <restriction base="string">
+            <pattern value="[0-9]{15}"/> <!-- version complexe "^(?:[1-4]|7|8)\d{2}(?:0[1-9]|1[1-2]|[2-3]\d|4[0-2]|[5-9]\d)(?:0[1-9]|[1-8]\d|9[1-5]|2A|2B|96)(?:00[1-9]|0[1-9]\d|[1-9]\d{2})|(?:97[0-9]|98[1-9])(?:0[0-9]|[1-9]\d)|99(?:00[1-9]|0[1-9]\d|[1-9]\d{2})"gm -->
+        </restriction>
+    </simpleType>
+
+    <simpleType name="NomComplet">
+        <restriction base="string">
+            <pattern value="[A-Z]?[a-zéèàêâùïüë]+"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="IdIntervenant">
+        <restriction base="string">
+            <pattern value="[0-9]{3}"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="Sexe">
+        <restriction base="string">
+            <enumeration value="F"/>
+            <enumeration value="M"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="Naissance">
+        <restriction base="date">
+            <minInclusive value="1900-01-01"/>
+        </restriction>
+    </simpleType>
+
+    <!-- Regex qui prend en compte les départements de la Corse-->
+    <simpleType name="CodePostal">
+        <restriction base="string">
+            <pattern value="(([0-8][0-9])|(9[0-5])|(2[ab]))[0-9]{3}"/>
+        </restriction>
+    </simpleType>
+    
+</schema>

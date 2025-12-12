@@ -20,7 +20,7 @@
                 <meta charset="utf-8"/>
                 <title>Planning infirmière</title>
                 <link rel="stylesheet" href="../css/style.css"/>
-                <script type="text/javascript" src="../js/facture.js"></script>
+                <script type="text/javascript" src="../js/buttonScript.js">//</script>
             </head>
             <body>
 

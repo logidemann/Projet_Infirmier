@@ -12,3 +12,26 @@
 /home/b/baccardf/RiderProjects/Cabinet Infermier/CabinetInfirmier/obj/Debug/net8.0/CabinetInfirmier.pdb
 /home/b/baccardf/RiderProjects/Cabinet Infermier/CabinetInfirmier/obj/Debug/net8.0/CabinetInfirmier.genruntimeconfig.cache
 /home/b/baccardf/RiderProjects/Cabinet Infermier/CabinetInfirmier/obj/Debug/net8.0/ref/CabinetInfirmier.dll
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\bin\Debug\net8.0\CabinetInfirmier.exe
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\bin\Debug\net8.0\src\data\xml\actes.xml
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\bin\Debug\net8.0\src\data\xml\cabinet.xml
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\bin\Debug\net8.0\src\data\xsd\cabinet.xsd
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\bin\Debug\net8.0\src\data\xsd\patient.xsd
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\bin\Debug\net8.0\CabinetInfirmier.deps.json
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\bin\Debug\net8.0\CabinetInfirmier.runtimeconfig.json
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\bin\Debug\net8.0\CabinetInfirmier.dll
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\bin\Debug\net8.0\CabinetInfirmier.pdb
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\obj\Debug\net8.0\CabinetInfirmier.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\obj\Debug\net8.0\CabinetInfirmier.AssemblyInfoInputs.cache
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\obj\Debug\net8.0\CabinetInfirmier.AssemblyInfo.cs
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\obj\Debug\net8.0\CabinetInfirmier.csproj.CoreCompileInputs.cache
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\obj\Debug\net8.0\CabinetInfirmier.sourcelink.json
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\obj\Debug\net8.0\CabinetInfirmier.dll
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\obj\Debug\net8.0\refint\CabinetInfirmier.dll
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\obj\Debug\net8.0\CabinetInfirmier.pdb
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\obj\Debug\net8.0\CabinetInfirmier.genruntimeconfig.cache
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\obj\Debug\net8.0\ref\CabinetInfirmier.dll
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\bin\Debug\net8.0\src\data\xslt\infirmier.xsl
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\bin\Debug\net8.0\src\data\css\style.css
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\bin\Debug\net8.0\src\data\js\buttonScript.js
+C:\Users\mrhea\Desktop\Devoirs\L3\XML\Projet_Infirmier\CabinetInfirmier\bin\Debug\net8.0\src\data\xml\cabinet_modif.xml

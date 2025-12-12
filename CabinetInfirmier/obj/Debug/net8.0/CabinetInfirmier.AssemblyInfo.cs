@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CabinetInfirmier")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+566258f6d56686dbcc03424891fc856b3734f401")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5e2dd3bdcc3db5fe860486be44b9dcc5ff284876")]
 [assembly: System.Reflection.AssemblyProductAttribute("CabinetInfirmier")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CabinetInfirmier")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
