@@ -124,10 +124,10 @@ try
         Visite visite = new Visite
         {
             Date = "2023-12-15", 
-            IntervenantId = "001" // On l'assigne à l'infirmier 001 (visible dans l'arbre PDF)
+            IntervenantId = "001" // On l'assigne à l'infirmier 001 déjà existant
         };
 
-        // On ajoute un acte à la visite (ex: id 101 trouvé dans le PDF pour "Prélèvement")
+        // On ajoute un acte à la visite 
         visite.Actes.Add(new Acte { Id = "101" });
 
         // On attache la visite au patient

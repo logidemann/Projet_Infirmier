@@ -83,7 +83,7 @@ public class CabinetXSLT
         // Création du nouvel infirmier
         XmlElement newInfirmier = doc.CreateElement("infirmier", ns);
     
-        // Calcul ID (Idéalement, il faudrait calculer le max des ID existants + 1, mais 005 suffit pour le TP)
+        // Affectation de l'id attention il ne faut pas qu'il existe déjà car il y a clé d'unicité
         newInfirmier.SetAttribute("id", "005"); 
 
         XmlElement elNom = doc.CreateElement("nom", ns);
