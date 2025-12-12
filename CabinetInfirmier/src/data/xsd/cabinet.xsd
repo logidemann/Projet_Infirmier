@@ -13,6 +13,11 @@
             <selector xpath="cab:infirmiers/cab:infirmier"/>
             <field xpath="@id"/>
         </key>
+
+        <keyref name="intervenantRef" refer="cab:idInfirmierKey">
+            <selector xpath="cab:patients/cab:patient/cab:visite"/>
+            <field xpath="@intervenant"/>
+        </keyref>
     </element>
 
     <complexType name="Cabinet">
