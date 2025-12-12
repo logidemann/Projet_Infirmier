@@ -86,7 +86,7 @@
                     <xsl:text>','</xsl:text>
                     <xsl:value-of select="m:nom"/>
                     <xsl:text>','</xsl:text>
-                    <!-- ici on passe le/les codes actes (dans ton cas 1 acte) -->
+                    <!-- ici on passe le/les codes actes -->
                     <xsl:value-of select="m:visite[@intervenant=$destinedId]/m:acte/@id"/>
                     <xsl:text>')</xsl:text>
                 </xsl:attribute>
